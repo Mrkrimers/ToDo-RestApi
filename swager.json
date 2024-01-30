@@ -1,0 +1,199 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "auth-mongoose",
+        "version": "1.0.0",
+        "description": "Приложение для создания, обновления, чтения и удаления задач с использованием БД Mongoose"
+    },
+    "paths": {
+        "/task": {
+            "get": {
+                "tags": [
+                    "TASKS"
+                ],
+                "summaru": "Get All Tasks",
+                "description": "PUSH button `Try` and you can get all tasks",
+                "responses": {
+                    "200": {
+                        "description": "A successful response looks like:",
+                        "content": {
+                            "application/json": {
+                                "example": [
+                                    {
+                                        "_id": "659c376b7da83b49e5624bce",
+                                        "title": "test",
+                                        "description": "test",
+                                        "__v": 0
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "TASKS"
+                ],
+                "summaru": "Create and save Task",
+                "description": "Push button `Try` and type details about the new task",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "A successful response looks like:",
+                        "content": {
+                            "application/json": {
+                                "example": [
+                                    {
+                                        "_id": "659c376b7da83b49e5624bce",
+                                        "title": "test",
+                                        "description": "test",
+                                        "__v": 0
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/task/{_id}": {
+            "get": {
+                "tags": [
+                    "TASKS"
+                ],
+                "summaru": "Get Task by ID",
+                "description": "PUSH button `Try` and type your ID",
+                "parameters": [
+                    {
+                        "name": "_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A successful response looks like:",
+                        "content": {
+                            "application/json": {
+                                "example": [
+                                    {
+                                        "_id": "Your selected ID",
+                                        "title": "test",
+                                        "description": "test",
+                                        "__v": 0
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "TASKS"
+                ],
+                "summaru": "Update Task by ID",
+                "description": "PUSH button `Try` type your ID, type your new Data",
+                "parameters": [
+                    {
+                        "name": "_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "A successful response looks like:",
+                        "content": {
+                            "application/json": {
+                                "example": [
+                                    {
+                                        "_id": "Your selected ID",
+                                        "title": "Your new data",
+                                        "description": "Your new data",
+                                        "__v": 0
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "TASKS"
+                ],
+                "summaru": "Delete Task by ID",
+                "description": "PUSH button `Try` and type your ID",
+                "parameters": [
+                    {
+                        "name": "_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A successful response looks like:",
+                        "content": {
+                            "application/json": {
+                                "example": [
+                                    {
+                                        "_id": "Not Your selected ID",
+                                        "title": "test",
+                                        "description": "test",
+                                        "__v": 0
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

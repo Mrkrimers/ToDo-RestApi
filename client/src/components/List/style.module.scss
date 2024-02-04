@@ -1,0 +1,64 @@
+.empty {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    margin-top: 40px;
+
+    .image {
+        background-image: url('../../assets/Detective-check-footprint\ 1.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 221px;
+        height: 174px;
+    }
+
+    h2 {
+        color: rgb(37, 37, 37);
+        font: 400 20px Kanit;
+        text-transform: capitalize;
+        text-align: center;
+    }
+}
+
+.list {
+    margin-top: 40px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+
+    .textForm {
+        display: flex;
+        gap: 15px;
+
+        h1 {
+            color: rgb(195, 193, 229);
+            font: 500 20px Kanit;
+            text-transform: uppercase;
+
+            &:first-child {
+                color: rgb(37, 37, 37);
+            }
+        }
+    }
+
+
+    .svgPen {
+        background-image: url('../../assets/pen.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 20px;
+        height: 20px;
+    }
+
+    .svgTrash {
+        background-image: url('../../assets/trash.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 20px;
+        height: 20px;
+    }
+}

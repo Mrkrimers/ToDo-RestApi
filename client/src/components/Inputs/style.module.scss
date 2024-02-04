@@ -2,9 +2,59 @@
     h1 {
         color: rgb(37, 37, 37);
         font: 500 26px Kanit;
+        text-align: center;
+        padding: 40px 0px 15px;
     }
 
-    .entryField{
-        
+    .inputWrapper {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        align-items: center;
+
+        .entryField {
+            display: flex;
+            gap: 15px;
+
+            input {
+                align-items: center;
+                padding: 9px 16px;
+                border: 1px solid rgb(108, 99, 255);
+                border-radius: 5px;
+                outline: none;
+
+                &::placeholder {
+                    color: rgb(195, 193, 230);
+                    font: 500 16px Inter;
+                    letter-spacing: 0%;
+                    text-align: left;
+                }
+
+                &:first-child {
+                    width: 246px;
+                }
+
+                &:last-child {
+                    width: 389px;
+                }
+            }
+        }
+
+        .btn {
+            border-radius: 5px;
+            background: rgb(108, 99, 255);
+            color: rgb(247, 247, 247);
+            font: 500 18px Kanit;
+            text-transform: uppercase;
+            padding: 7px 16px;
+
+            transition: all 0.3s;
+
+            &:hover {
+                cursor: pointer;
+                box-shadow: 0px 0px 10px 4px rgba(13, 13, 13, 0.162);
+            }
+        }
     }
+
 }

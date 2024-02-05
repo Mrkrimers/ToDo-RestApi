@@ -60,5 +60,12 @@
         background-size: contain;
         width: 20px;
         height: 20px;
+        transition: all 0.5s;
+
+        &:hover {
+            cursor: pointer;
+            border: 1px solid grey;
+            border-radius: 5px;
+        }
     }
 }

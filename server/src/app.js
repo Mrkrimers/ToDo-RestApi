@@ -12,10 +12,10 @@ app.use(cors({
     credentials: true
 }));
 app.use(bodyParser.json());
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 app.use('/task', task);
 
-app.use((err, req, res, _next) => res.send(err.message))
+app.use((err, req, res, _next) => res.send(err.message));
 
 module.exports = app

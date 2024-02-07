@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import style from './style.module.scss'
 import axios from 'axios'
 import { iTask } from '../../interface'
@@ -9,14 +9,14 @@ export default function List() {
 
     useEffect(() => {
         getAllDataFromDB()
-    }, [dataFromDB])
+    }, [])
 
     const getAllDataFromDB = async () => {
         const { data } = await axios.get('http://localhost:3001/task');
         setDataFromDB(data);
     }
 
-    const deleteTask = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const deleteTask = async (event: React.ChangeEvent<HTMLButtonElement>) => {
         const response = await axios.delete(`http://localhost:3001/task/${event.target.id}`);
         console.log(response);
     }
@@ -40,9 +40,10 @@ export default function List() {
                         </div>
 
                         <div className={style.svgPen}></div>
-                        <div id={el._id} onClick={deleteTask} className={style.svgTrash}></div>
-                        {/* <button onClick={() => console.log(ref.current.checked)
-                        }>CHECK</button> */}
+                        <button id={el._id} onClick={deleteTask}>
+                            <div className={style.svgTrash}></div>
+                        </button>
+
                     </div>
                 )
             }

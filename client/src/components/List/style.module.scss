@@ -30,6 +30,23 @@
     align-items: center;
     justify-content: center;
 
+    .lable {
+        color: rgb(37, 37, 37);
+        font: 500 20px Kanit;
+        text-transform: uppercase;
+    }
+
+    .active {
+        color: rgb(37, 37, 37);
+        font: 500 20px Kanit;
+        text-transform: uppercase;
+        text-decoration: line-through;
+    }
+
+    .textConten {
+        margin-left: 6px;
+    }
+
     .textForm {
         display: flex;
         gap: 15px;
@@ -38,10 +55,6 @@
             color: rgb(195, 193, 229);
             font: 500 20px Kanit;
             text-transform: uppercase;
-
-            &:first-child {
-                color: rgb(37, 37, 37);
-            }
         }
     }
 

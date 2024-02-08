@@ -3,3 +3,7 @@ export interface iTask {
     title: string,
     description: string
 }
+
+export interface iCheckboxValues {
+    [key: string]: boolean;
+}

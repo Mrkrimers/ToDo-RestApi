@@ -1,15 +1,18 @@
 import style from './style.module.scss'
 
-export default function PopupMenu() {
+export default function PopupMenu({ openModal, setOpenModal }) {
+
+
     return (
         <div className={style.modal}>
 
             <div className={style.menu}>
+
                 <h1>Update Note</h1>
 
                 <div className={style.inputForm}>
-                    <input type="text" />
-                    <input type="text" />
+                    <input type="text" placeholder='Input your note...' />
+                    <input type="text" placeholder='Input your description note...' />
                 </div>
 
                 <div className={style.btnForm}>

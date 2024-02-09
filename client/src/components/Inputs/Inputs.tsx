@@ -14,7 +14,6 @@ export default function Inputs() {
 
     const collectData = (event: React.ChangeEvent<HTMLInputElement>) => setInp({ ...inp, [event.target.name]: event.target.value })
 
-
     return (
         <div className={style.wrapper}>
             <h1>TODO LIST</h1>
@@ -25,8 +24,7 @@ export default function Inputs() {
                     <input onChange={collectData} name='description' type="text" placeholder='Create description note...' />
                 </div>
 
-                <div className={style.btn} onClick={sendData
-                }>create</div>
+                <div className={style.btn} onClick={sendData}>create</div>
             </div>
 
         </div>

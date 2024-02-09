@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react'
 import style from './style.module.scss'
 import axios from 'axios'
 import { iCheckboxValues, iTask } from '../../interface'
+import PopupMenu from '../PopupMenu/Popup'
 
 export default function List() {
     const [dataFromDB, setDataFromDB] = useState<iTask[]>([])
     const [checkboxValues, setCheckboxValues] = useState<iCheckboxValues>({})
+    const [openModal, setOpenModal] = useState<boolean>(false)
 
     useEffect(() => {
         getAllDataFromDB()
@@ -23,7 +25,9 @@ export default function List() {
 
     return (
         <>
-            <button onClick={() => console.log(checkboxValues)}>CHECK</button>
+
+            <PopupMenu openModal={openModal} setOpenModal={setOpenModal} />
+
             {dataFromDB.length == 0 ?
                 <div className={style.empty}>
                     <div className={style.image}></div>
@@ -46,7 +50,7 @@ export default function List() {
                             <h1>{el.description}</h1>
                         </div>
 
-                        <div className={style.svgPen}></div>
+                        <div onClick={() => setOpenModal(!openModal)} className={style.svgPen}></div>
                         <div id={el._id} onClick={deleteTask} className={style.svgTrash}></div>
 
                     </div >

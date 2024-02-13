@@ -25,8 +25,7 @@ export default function List() {
 
     return (
         <>
-
-            <PopupMenu openModal={openModal} setOpenModal={setOpenModal} />
+            {openModal ? <PopupMenu openModal={openModal} setOpenModal={setOpenModal} /> : null}
 
             {dataFromDB.length == 0 ?
                 <div className={style.empty}>

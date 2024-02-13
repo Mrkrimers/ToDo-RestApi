@@ -7,3 +7,7 @@ export interface iTask {
 export interface iCheckboxValues {
     [key: string]: boolean;
 }
+export interface iPopupMenuProps {
+    openModal: boolean;
+    setOpenModal: (value: boolean) => void;
+}

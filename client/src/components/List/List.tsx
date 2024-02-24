@@ -3,13 +3,12 @@ import style from './style.module.scss'
 import axios from 'axios'
 import { iCheckboxValues, iTask } from '../../interface'
 import PopupMenu from '../PopupMenu/Popup'
-import { } from 'react-transition-group'
+import { CSSTransition } from 'react-transition-group'
 
 export default function List() {
     const [dataFromDB, setDataFromDB] = useState<iTask[]>([])
     const [checkboxValues, setCheckboxValues] = useState<iCheckboxValues>({})
     const [openModal, setOpenModal] = useState<boolean>(false)
-
 
     useEffect(() => {
         getAllDataFromDB()
@@ -27,10 +26,15 @@ export default function List() {
 
     return (
         <>
-            <CSSTransition>
-
+            <CSSTransition
+                in={openModal}
+                timeout={300}
+                classNames={"fade"}
+                unmountOnExit
+            >
+                <PopupMenu openModal={openModal} setOpenModal={setOpenModal} />
+                {/* {openModal ? <PopupMenu openModal={openModal} setOpenModal={setOpenModal} /> : null} */}
             </CSSTransition>
-            {openModal ? <PopupMenu openModal={openModal} setOpenModal={setOpenModal} /> : null}
 
             {dataFromDB.length == 0 ?
                 <div className={style.empty}>

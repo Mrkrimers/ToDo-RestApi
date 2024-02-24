@@ -10,9 +10,9 @@
     justify-content: center;
     align-items: center;
 
-    opacity: 1;
-    transform: scale(1);
-    transition: all .5s;
+    // opacity: 1;
+    // transform: scale(1);
+    // transition: all .5s;
 
     .menu {
         border-radius: 16px;
@@ -89,8 +89,4 @@
             }
         }
     }
-}
-
-.active {
-    transform: scale(0);
 }

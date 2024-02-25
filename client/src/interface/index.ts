@@ -10,4 +10,5 @@ export interface iCheckboxValues {
 export interface iPopupMenuProps {
     openModal: boolean;
     setOpenModal: (value: boolean) => void;
+    _id: string
 }

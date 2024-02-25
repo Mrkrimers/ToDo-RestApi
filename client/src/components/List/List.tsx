@@ -9,6 +9,7 @@ export default function List() {
     const [dataFromDB, setDataFromDB] = useState<iTask[]>([])
     const [checkboxValues, setCheckboxValues] = useState<iCheckboxValues>({})
     const [openModal, setOpenModal] = useState<boolean>(false)
+    const [getId, setGetId] = useState<string>('')
 
     useEffect(() => {
         getAllDataFromDB()
@@ -20,8 +21,7 @@ export default function List() {
     }
 
     const deleteTask = async (event: React.MouseEvent<HTMLDivElement>) => {
-        const response = await axios.delete(`http://localhost:3001/task/${event.currentTarget.id}`);
-        console.log(response);
+        await axios.delete(`http://localhost:3001/task/${event.currentTarget.id}`);
     }
 
     return (
@@ -32,7 +32,7 @@ export default function List() {
                 classNames={"fade"}
                 unmountOnExit
             >
-                <PopupMenu openModal={openModal} setOpenModal={setOpenModal} />
+                <PopupMenu openModal={openModal} setOpenModal={setOpenModal} _id={getId} />
                 {/* {openModal ? <PopupMenu openModal={openModal} setOpenModal={setOpenModal} /> : null} */}
             </CSSTransition>
 
@@ -58,7 +58,7 @@ export default function List() {
                             <h1>{el.description}</h1>
                         </div>
 
-                        <div onClick={() => setOpenModal(!openModal)} className={style.svgPen}></div>
+                        <div id={el._id} onClick={(event) => { setOpenModal(!openModal); setGetId(event.currentTarget.id) }} className={style.svgPen}></div>
                         <div id={el._id} onClick={deleteTask} className={style.svgTrash}></div>
 
                     </div >
